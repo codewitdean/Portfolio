@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puzzle Portfolio Preview</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: rgba(255, 255, 255, 0.08);
+        --panel-border: rgba(255, 255, 255, 0.14);
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --blue: #3b82f6;
+        --cyan: #22d3ee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 32rem),
+          radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.16), transparent 30rem),
+          var(--bg);
+        color: var(--text);
+      }
+
+      .puzzle-hero {
+        min-height: 100vh;
+        padding: 6rem 2rem;
+        display: grid;
+        grid-template-columns: minmax(260px, 0.8fr) minmax(320px, 1.2fr);
+        gap: 3rem;
+        align-items: center;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        margin: 0 0 0.75rem;
+        color: var(--cyan);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        line-height: 1;
+        margin: 0 0 1rem;
+      }
+
+      .hero-copy p:not(.eyebrow) {
+        color: var(--muted);
+        max-width: 34rem;
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      button {
+        margin-top: 1.25rem;
+        padding: 0.85rem 1.2rem;
+        border: 0;
+        border-radius: 0.5rem;
+        background: var(--blue);
+        color: white;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .puzzle-board {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(130px, auto);
+        gap: 0.75rem;
+      }
+
+      .puzzle-piece {
+        min-height: 150px;
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        padding: 1.35rem;
+        border-radius: 0.75rem;
+        backdrop-filter: blur(14px);
+        transition:
+          transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1),
+          box-shadow 500ms ease,
+          border-color 500ms ease;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+      }
+
+      .puzzle-piece h2 {
+        margin: 0 0 0.6rem;
+        font-size: 1.25rem;
+      }
+
+      .puzzle-piece p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .piece-photo {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .piece-about {
+        grid-column: span 4;
+      }
+
+      .piece-skills,
+      .piece-project {
+        grid-column: span 3;
+      }
+
+      .image-placeholder {
+        height: 100%;
+        min-height: 260px;
+        display: grid;
+        place-items: center;
+        border: 2px dashed rgba(255, 255, 255, 0.24);
+        color: var(--muted);
+        border-radius: 0.5rem;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+      }
+
+      .skills-list span {
+        padding: 0.45rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(34, 211, 238, 0.12);
+        color: #bae6fd;
+      }
+
+      .puzzle-board:not(.assembled) .piece-photo {
+        transform: translate(-46px, 34px) rotate(-7deg);
+      }
+
+      .puzzle-board:not(.assembled) .piece-about {
+        transform: translate(54px, -32px) rotate(5deg);
+      }
+
+      .puzzle-board:not(.assembled) .piece-skills {
+        transform: translate(-28px, 58px) rotate(4deg);
+      }
+
+      .puzzle-board:not(.assembled) .piece-project {
+        transform: translate(48px, 44px) rotate(-5deg);
+      }
+
+      .puzzle-board.assembled .puzzle-piece {
+        transform: translate(0, 0) rotate(0deg);
+        border-color: rgba(34, 211, 238, 0.24);
+        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+      }
+
+      @media (max-width: 800px) {
+        .puzzle-hero {
+          grid-template-columns: 1fr;
+          padding: 4rem 1rem;
+        }
+
+        .puzzle-board {
+          grid-template-columns: 1fr;
+        }
+
+        .piece-photo,
+        .piece-about,
+        .piece-skills,
+        .piece-project {
+          grid-column: auto;
+          grid-row: auto;
+        }
+
+        .puzzle-board:not(.assembled) .puzzle-piece {
+          transform: translateY(18px) rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="puzzle-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Interactive Portfolio</p>
+        <h1>Dean Kwadwo Obeng Asante</h1>
+        <p>
+          A portfolio hero that begins as scattered pieces, then assembles into a clean layout.
+        </p>
+        <button id="assembleBtn">Assemble Portfolio</button>
+      </div>
+
+      <div class="puzzle-board" id="puzzleBoard">
+        <article class="puzzle-piece piece-photo">
+          <div class="image-placeholder">Profile Photo</div>
+        </article>
+
+        <article class="puzzle-piece piece-about">
+          <h2>About Me</h2>
+          <p>I enjoy building practical apps, debugging systems, and improving user experience.</p>
+        </article>
+
+        <article class="puzzle-piece piece-skills">
+          <h2>Skills</h2>
+          <div class="skills-list">
+            <span>React</span>
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>Python</span>
+          </div>
+        </article>
+
+        <article class="puzzle-piece piece-project">
+          <h2>Featured Project</h2>
+          <p>A polished project preview can sit here once the pieces assemble.</p>
+        </article>
+      </div>
+    </section>
+
+    <script>
+      const board = document.getElementById("puzzleBoard");
+      const button = document.getElementById("assembleBtn");
+
+      button.addEventListener("click", () => {
+        board.classList.toggle("assembled");
+        button.textContent = board.classList.contains("assembled")
+          ? "Scatter Portfolio"
+          : "Assemble Portfolio";
+      });
+    </script>
+  </body>
+</html>
