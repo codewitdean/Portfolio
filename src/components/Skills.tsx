@@ -5,54 +5,34 @@ import styles from './Skills.module.css';
 
 const skills = [
   {
-    category: 'Programming Languages',
-    items: [
-      { name: 'Java', icon: '☕' },
-      { name: 'C#', icon: '🎯' },
-      { name: 'Python', icon: '🐍' },
-      { name: 'HTML/CSS', icon: '🌐' },
-    ],
+    category: 'Languages',
+    summary: 'Core programming and web fundamentals',
+    items: ['Java', 'C#', 'Python', 'JavaScript', 'HTML/CSS'],
   },
   {
-    category: 'Frameworks & Libraries',
-    items: [
-      { name: 'React.js', icon: '⚛️' },
-      { name: 'ASP.NET Core', icon: '🟣' },
-    ],
+    category: 'Frameworks',
+    summary: 'Frontend and backend application work',
+    items: ['React.js', 'Next.js', 'Node.js', 'ASP.NET Core'],
   },
   {
-    category: 'Databases & Cloud',
-    items: [
-      { name: 'MongoDB', icon: '🍃' },
-      { name: 'SQL', icon: '🗄️' },
-      { name: 'AWS', icon: '☁️' },
-      { name: 'Azure', icon: '🔷' },
-      { name: 'Git', icon: '📦' },
-    ],
+    category: 'Data & Cloud',
+    summary: 'Persistence, deployment, and service basics',
+    items: ['MongoDB', 'SQL', 'SQLite', 'AWS', 'Azure'],
   },
   {
-    category: 'Development Tools',
-    items: [
-      { name: 'VS Code', icon: '💻' },
-      { name: 'IntelliJ', icon: '🛠️' },
-      { name: 'Rider', icon: '🚀' },
-      { name: 'PyCharm', icon: '🐍' },
-    ],
+    category: 'Tools',
+    summary: 'Daily development and debugging workflow',
+    items: ['Git', 'VS Code', 'IntelliJ', 'Rider', 'PyCharm'],
   },
   {
-    category: 'Testing & Monitoring',
-    items: [
-      { name: 'Postman', icon: '📬' },
-      { name: 'Bruno', icon: '🧪' },
-      { name: 'Datadog', icon: '📊' },
-    ],
+    category: 'Testing & APIs',
+    summary: 'API testing and application visibility',
+    items: ['Postman', 'Bruno', 'Datadog'],
   },
   {
     category: 'Design & Collaboration',
-    items: [
-      { name: 'Figma', icon: '🎨' },
-      { name: 'Canva', icon: '🖌️' },
-    ],
+    summary: 'Interface planning and communication',
+    items: ['Figma', 'Canva', 'Documentation'],
   },
 ];
 
@@ -90,12 +70,14 @@ export default function Skills() {
         <div className={styles.grid}>
           {skills.map((category) => (
             <div key={category.category} className={styles.category}>
-              <h3 className={styles.categoryTitle}>{category.category}</h3>
+              <div className={styles.categoryHeader}>
+                <h3 className={styles.categoryTitle}>{category.category}</h3>
+                <p>{category.summary}</p>
+              </div>
               <div className={styles.skillsGrid}>
                 {category.items.map((skill) => (
-                  <div key={skill.name} className={styles.skillCard}>
-                    <span className={styles.icon}>{skill.icon}</span>
-                    <span className={styles.skillName}>{skill.name}</span>
+                  <div key={skill} className={styles.skillCard}>
+                    <span className={styles.skillName}>{skill}</span>
                   </div>
                 ))}
               </div>

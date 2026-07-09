@@ -1,13 +1,13 @@
 'use client';
 
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaEnvelope, FaGithub } from "react-icons/fa";
 import styles from './SocialLinks.module.css';
 
 export default function SocialLinks() {
   return (
     <div className={styles.socialLinks}>
       <a
-        href="https://github.com/githubUsername"
+        href="https://github.com/codewitdean"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.link}
@@ -16,13 +16,11 @@ export default function SocialLinks() {
         <FaGithub className={styles.icon} size={24} />
       </a>
       <a
-        href="https://www.linkedin.com/in/name-here/"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="mailto:deanasantee@gmail.com"
         className={styles.link}
-        aria-label="LinkedIn Profile"
+        aria-label="Email Dean"
       >
-        <FaLinkedin className={styles.icon} size={24} />
+        <FaEnvelope className={styles.icon} size={24} />
       </a>
     </div>
   );

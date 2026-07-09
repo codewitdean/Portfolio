@@ -3,37 +3,49 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: #000000;
-  z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  background: #050608;
+  z-index: 0;
 }
 
 .background::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 20%, #000000 82%);
-  pointer-events: none;
-  z-index: 2;
+  background:
+    linear-gradient(120deg, rgba(103, 232, 217, 0.12), transparent 34%),
+    linear-gradient(245deg, rgba(139, 183, 255, 0.12), transparent 42%),
+    linear-gradient(180deg, transparent 0%, rgba(5, 6, 8, 0.88) 78%);
+  opacity: 0.95;
+}
+
+.background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0 23%, rgba(255, 255, 255, 0.045) 23% 23.15%, transparent 23.15% 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 38%, rgba(103, 232, 217, 0.035) 100%);
+  opacity: 0.7;
 }
 
 .gradient {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at center, rgba(37, 99, 235, 0.16), transparent 34%),
-    radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.08), transparent 28%);
-  z-index: 0;
+    repeating-linear-gradient(115deg, rgba(103, 232, 217, 0.055) 0 1px, transparent 1px 74px),
+    repeating-linear-gradient(0deg, rgba(139, 183, 255, 0.04) 0 1px, transparent 1px 58px);
+  mask-image: linear-gradient(to bottom, transparent, black 14%, black 88%, transparent);
 }
 
 .grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(59, 130, 246, 0.065) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.065) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
   background-position: center;
-  z-index: 1;
-} 
+  opacity: 0.34;
+}

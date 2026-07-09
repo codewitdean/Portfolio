@@ -5,36 +5,43 @@ import { useEffect, useRef } from 'react';
 import styles from './Experience.module.css';
 
 interface ExperienceItem {
-  company: string;
+  organization: string;
   role: string;
   period: string;
   description: string[];
   technologies: string[];
-  logo: string;
 }
 
 const experiences: ExperienceItem[] = [
   {
-    company: 'Company 1',
-    role: 'Position/Role',
-    period: 'Period/Duration',
+    organization: 'Kennesaw State University',
+    role: 'Computer Science Student',
+    period: 'Current',
     description: [
-      'Bullet Point 1',
-      'Bullet Point 2',
+      'Building a strong foundation in programming, problem solving, software engineering, and application design.',
+      'Applying coursework through hands-on web, backend, and Android-focused projects.',
     ],
-    technologies: ['Python', 'SQL', 'Git'],
-    logo: '/link-to/image1.webp'
+    technologies: ['Java', 'Python', 'C#', 'Software Engineering'],
   },
   {
-    company: 'Company 2',
-    role: 'Position/Role',
-    period: 'Period/Duration',
+    organization: 'Peer Support & Lab Work',
+    role: 'Student Support / TA-style Contributor',
+    period: 'Ongoing',
     description: [
-      'Bullet Point 1',
-      'Bullet Point 2',
+      'Helped students reason through programming fundamentals, debugging steps, and cleaner ways to explain code.',
+      'Strengthened communication habits by breaking technical problems into understandable pieces.',
     ],
-    technologies: ['Angular', 'Typescript', 'Jest'],
-    logo: '/link-to/image2.webp'
+    technologies: ['Debugging', 'Communication', 'Code Review'],
+  },
+  {
+    organization: 'Independent Projects',
+    role: 'Full-stack Developer',
+    period: '2025 - Present',
+    description: [
+      'Designed and deployed ReadyUp, a student productivity app built with React, Node, and MongoDB.',
+      'Focused on user flows, task organization, progress tracking, and practical deployment details.',
+    ],
+    technologies: ['React.js', 'Node.js', 'MongoDB', 'Deployment'],
   },
 ];
 
@@ -82,11 +89,11 @@ export default function Experience() {
   return (
     <section id="experience" ref={sectionRef} className={styles.experience}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Experience</h2>
+        <h2 className={styles.title}>Experience & Practice</h2>
         <div className={styles.timeline}>
           {experiences.map((exp, index) => (
             <div
-              key={index}
+              key={exp.organization}
               ref={(el) => {
                 itemRefs.current[index] = el;
               }}
@@ -95,17 +102,8 @@ export default function Experience() {
               <div className={styles.timelineContent}>
                 <div className={styles.timelineHeader}>
                   <div className={styles.companyInfo}>
-                    {/* Use if you have logo for where you worked*/}
-                    {/* <div className={styles.logoWrapper}>
-                      <Image
-                        src={exp.logo}
-                        alt={`${exp.company} logo`}
-                        width={40}
-                        height={40}
-                        className={styles.logo}
-                      />
-                    </div> */}
-                    <h3 className={styles.company}>{exp.company}</h3>
+                    <span className={styles.index}>0{index + 1}</span>
+                    <h3 className={styles.company}>{exp.organization}</h3>
                   </div>
                   <span className={styles.period}>{exp.period}</span>
                 </div>

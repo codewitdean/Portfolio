@@ -1,32 +1,29 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useRef } from 'react';
+import { FaCodeBranch, FaLightbulb, FaUsers } from 'react-icons/fa';
 import styles from './About.module.css';
 
-const interests = [
+const values = [
   {
-    title: 'Service',
-    description: "",
-    image: ''
+    title: 'Build with purpose',
+    description: 'I like projects that solve a clear problem, keep the user in mind, and turn scattered ideas into something people can actually use.',
+    icon: FaLightbulb,
   },
-//   {
-//     title: 'Music',
-//     description: 'Finding inspiration in different genres and artists',
-//     image: '/images/interests/music.jpg'
-//   },
   {
-    title: '',
-    description: 'Building connections and relationships with others',
-    image: ''
-  }
+    title: 'Write understandable code',
+    description: 'Lab and peer-support work taught me to value code that another person can read, debug, and improve without guessing the intent.',
+    icon: FaCodeBranch,
+  },
+  {
+    title: 'Communicate clearly',
+    description: 'Whether I am learning a new stack or helping someone through a bug, I try to explain tradeoffs and keep the work moving.',
+    icon: FaUsers,
+  },
 ];
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const autoPlayRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
     const currentRef = sectionRef.current;
@@ -52,116 +49,45 @@ export default function About() {
     };
   }, []);
 
-  useEffect(() => {
-    if (isAutoPlaying) {
-      autoPlayRef.current = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % interests.length);
-      }, 5000);
-    }
-
-    return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
-    };
-  }, [isAutoPlaying]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % interests.length);
-    setIsAutoPlaying(false);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + interests.length) % interests.length);
-    setIsAutoPlaying(false);
-  };
-
   return (
     <section id="about" ref={sectionRef} className={styles.about}>
       <div className={styles.container}>
-        <h2 className={styles.title}>About Me</h2>
+        <div className={styles.heading}>
+          <p className={styles.kicker}>About</p>
+          <h2 className={styles.title}>A builder learning by shipping.</h2>
+        </div>
+
         <div className={styles.content}>
           <div className={styles.story}>
-            <h3 className={styles.subtitle}>My Journey</h3>
-            <p className={styles.text}>
-              I&apos;m a Computer Science student and a hands-on builder who got into software engineering because I liked turning ideas into real products.
-              I started with the basics programming fundamentals and problem solving and quickly realized I enjoyed designing features, debugging, and improving user experience. As I took more CS courses and worked on projects, I became interested in full-stack development and building android applications that solve real problems.
+            <h3>My Journey</h3>
+            <p>
+              I&apos;m a Computer Science student and hands-on builder who got into software engineering because I liked turning ideas into real products.
+              I started with programming fundamentals and problem solving, then became more interested in designing features, debugging, and improving user experience.
             </p>
-            <p className={styles.text}>
-              Teaching and supporting other students through lab/TA work also pushed me toward software engineering because it taught me how to write clean, understandable code and work in a team. That mix of building, collaborating, and continuously improving systems is what led me to software engineering.
+            <p>
+              As I took more CS courses and worked on projects, I found myself drawn to full-stack development and Android applications that solve practical problems.
+              Teaching and supporting other students through lab and TA-style work also helped me care more about clean code, teamwork, and clear explanations.
             </p>
           </div>
-          <div className={styles.interests}>
-            <h3 className={styles.subtitle}>Beyond Coding</h3>
-            <div className={styles.carousel}>
-              <button
-                className={`${styles.carouselButton} ${styles.prev}`}
-                onClick={prevSlide}
-                aria-label="Previous slide"
-              >
-                ←
-              </button>
-              <div className={styles.carouselContent}>
-                {interests.map((interest, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.carouselSlide} ${index === currentSlide ? styles.active : ''}`}
-                  >
-                    <div className={styles.carouselImage}>
-                      {interest.image ? (
-                        <Image
-                          src={interest.image}
-                          alt={interest.title}
-                          fill
-                          className={styles.image}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      ) : (
-                        <div className={styles.imagePlaceholder} aria-hidden="true" />
-                      )}
-                    </div>
-                    <div className={styles.carouselInfo}>
-                      <h4>{interest.title}</h4>
-                      <p>{interest.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <button
-                className={`${styles.carouselButton} ${styles.next}`}
-                onClick={nextSlide}
-                aria-label="Next slide"
-              >
-                →
-              </button>
-            </div>
-            <div className={styles.carouselDots}>
-              {interests.map((_, index) => (
-                <button
-                  key={index}
-                  className={`${styles.dot} ${index === currentSlide ? styles.active : ''}`}
-                  onClick={() => {
-                    setCurrentSlide(index);
-                    setIsAutoPlaying(false);
-                  }}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
+
+          <div className={styles.snapshot}>
+            <span>Currently focused on</span>
+            <strong>Full-stack projects, backend fundamentals, mobile development, and writing code that is easy to maintain.</strong>
           </div>
-          <div className={styles.values}>
-            <h3 className={styles.subtitle}>What I Value</h3>
-            <div className={styles.valueGrid}>
-              <div className={styles.value}>
-                <h4>Continuous Learning</h4>
-                <p>Always seeking to improve and stay current with technology</p>
-              </div>
-              <div className={styles.value}>
-                <h4>Innovation</h4>
-                <p>Finding creative solutions to complex problems</p>
-              </div>
-            </div>
-          </div>
+        </div>
+
+        <div className={styles.valueGrid}>
+          {values.map((value) => {
+            const Icon = value.icon;
+
+            return (
+              <article key={value.title} className={styles.value}>
+                <Icon className={styles.valueIcon} aria-hidden="true" />
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
