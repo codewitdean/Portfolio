@@ -1,6 +1,6 @@
 'use client';
 
-import { FaEnvelope, FaGithub } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import styles from './SocialLinks.module.css';
 
 export default function SocialLinks() {
@@ -14,6 +14,15 @@ export default function SocialLinks() {
         aria-label="GitHub Profile"
       >
         <FaGithub className={styles.icon} size={24} />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/dean-obeng-asante/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.link}
+        aria-label="LinkedIn Profile"
+      >
+        <FaLinkedin className={styles.icon} size={24} />
       </a>
       <a
         href="mailto:deanasantee@gmail.com"

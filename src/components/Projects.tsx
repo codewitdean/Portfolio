@@ -21,7 +21,7 @@ const projects: Project[] = [
   {
     title: 'ReadyUp',
     description: 'A full-stack planning app for students balancing internship prep, school tasks, and personal goals. I focused on task organization, progress tracking, and deploying a usable product.',
-    image: '/images/readyup.png',
+    image: '/images/projects/readyup.png',
     technologies: ['React.js', 'JavaScript', 'Node.js', 'MongoDB'],
     outcome: 'Productivity workflow for students',
     status: 'Live full-stack app',
@@ -30,13 +30,28 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    title: 'ASP.NET Core Coursework App',
-    description: 'A backend-focused practice project for strengthening C#, ASP.NET Core, SQLite data modeling, and clean application structure. This is positioned as an in-progress learning build instead of a placeholder.',
-    image: '/images/Project.png',
-    technologies: ['ASP.NET Core', 'C#', 'SQLite'],
-    outcome: 'Backend fundamentals and data flow',
-    status: 'In progress',
-  },
+  title: 'Habit Tracker with NLP Entry Support',
+  description:
+    'An app that helps users track daily habits by typing natural language entries like The app automatically converts those entries into structured habit data, allowing users to manage habits, log progress',
+  image: '/images/projects/Project.png',
+  technologies: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'shadcn/ui',
+    'Recharts',
+    'Node.js',
+    'Express.js',
+    'Zod',
+    'JWT'
+  ],
+  outcome: 'NLP-powered habit logging and progress tracking',
+  status: 'In progress',
+  link: 'https://github.com/codewitdean/TrackMe',
+  demo: '',
+  featured: true
+},
 ];
 
 export default function Projects() {

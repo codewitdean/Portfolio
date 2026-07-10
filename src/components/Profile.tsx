@@ -8,7 +8,7 @@ import SocialLinks from './SocialLinks';
 
 const proofPoints = [
   'Full-stack web apps',
-  'Android-focused problem solving',
+  // 'Android-focused problem solving',
   'CS lab and peer support',
 ];
 
@@ -50,7 +50,7 @@ export default function Profile() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>
-            <p className={styles.eyebrow}>Computer Science Student / Full-stack Developer</p>
+            <p className={styles.eyebrow}>Computer Science Student / Aspiring Software Developer</p>
             <h1 className={styles.title}>
               Building practical software with clean systems and thoughtful interfaces.
             </h1>
@@ -75,7 +75,7 @@ export default function Profile() {
                 <FaArrowRight aria-hidden="true" />
                 View Projects
               </a>
-              <a href="/files/CNRes_Oct25.pdf" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
+              <a href="/files/Dean'sResume.pdf" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
                 <FaFileAlt aria-hidden="true" />
                 Resume
               </a>
@@ -89,7 +89,7 @@ export default function Profile() {
           <div className={styles.visual} aria-label="Dean profile summary">
             <div className={styles.imageFrame}>
               <Image
-                src="/images/about-pic.jpg"
+                src="/images/profile/about-pic.jpg"
                 alt="Dean Obeng Asante"
                 className={styles.image}
                 fill
