@@ -30,7 +30,7 @@ const projects: Project[] = [
     featured: true,
   },
   {
-  title: 'Habit Tracker with NLP Entry Support',
+  title: 'TrackMe',
   description:
     'An app that helps users track daily habits by typing natural language entries like The app automatically converts those entries into structured habit data, allowing users to manage habits, log progress',
   image: '/images/projects/Project.png',
