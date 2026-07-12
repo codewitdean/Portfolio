@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   title: "Portfolio | Dean Kwadwo Obeng Asante ",
   description: "Full-stack developer passionate about creating efficient and functional web applications and systems",
   icons: {
-    icon: { url: '/yetron.ico', type: 'image/x-icon' },
-    shortcut: { url: '/yetron.ico', type: 'image/x-icon' },
-    apple: { url: '/yetron.png', type: 'image/png' },
+    icon: { url: '/favicon.ico', type: 'image/x-icon' },
+    shortcut: { url: '/favicon.ico', type: 'image/x-icon' },
+    apple: { url: '/cwd.png', type: 'image/png' },
   },
 };
 

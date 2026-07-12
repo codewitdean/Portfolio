@@ -27,14 +27,16 @@ const Navbar = () => {
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <a href="#" className={styles.logo} onClick={closeMenu}>
-          Dean Obeng Asante 
+        <a href="#home" className={styles.logo} onClick={closeMenu} aria-label="Dean Obeng Asante home">
+          <span className={styles.logoMark}>DO</span>
+          <span className={styles.logoText}>Dean Obeng Asante</span>
         </a>
         
         <button 
           className={`${styles.menuButton} ${isMenuOpen ? styles.open : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
         >
           <span></span>
           <span></span>

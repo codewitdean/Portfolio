@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import styles from './Projects.module.css';
 
 interface Project {
@@ -9,27 +10,48 @@ interface Project {
   description: string;
   image: string;
   technologies: string[];
-  link: string;
+  outcome: string;
+  status: string;
+  link?: string;
   demo?: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
   {
-  title: 'ReadyUp',
-  description: 'ReadyUp is a React, Node, and MongoDB app I built to help students organize internship prep, school tasks, and personal goals. I focused on task organization, progress tracking, and deploying a usable full-stack app.',
-  image: '/images/readyup.png',
-  technologies: ['React.js', 'JavaScript', 'Node.js', 'MongoDB'],
-  link: 'https://github.com/codewitdean/ReadyUp',
-  demo: 'https://readyup-eo6ha1k2k-dean-s-projects-1260c6bd.vercel.app/'
-},
-  {
-    title: 'Project 2',
-    description: 'Give a brief description of your project here.',
-    image: '/images/Project.png',
-    technologies: ['ASP.NET', 'C#','SQLite'],
-    link: 'link-to-your-repo',
-    demo: 'link-to-live-demo'
+    title: 'ReadyUp',
+    description: 'A full-stack planning app for students balancing internship prep, school tasks, and personal goals. I focused on task organization, progress tracking, and deploying a usable product.',
+    image: '/images/projects/readyup.png',
+    technologies: ['React.js', 'JavaScript', 'Node.js', 'MongoDB'],
+    outcome: 'Productivity workflow for students',
+    status: 'Live full-stack app',
+    link: 'https://github.com/codewitdean/ReadyUp',
+    demo: 'https://readyup-eo6ha1k2k-dean-s-projects-1260c6bd.vercel.app/',
+    featured: true,
   },
+  {
+  title: 'TrackMe',
+  description:
+    'An app that helps users track daily habits by typing natural language entries like The app automatically converts those entries into structured habit data, allowing users to manage habits, log progress',
+  image: '/images/projects/Project.png',
+  technologies: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'shadcn/ui',
+    'Recharts',
+    'Node.js',
+    'Express.js',
+    'Zod',
+    'JWT'
+  ],
+  outcome: 'NLP-powered habit logging and progress tracking',
+  status: 'In progress',
+  link: 'https://github.com/codewitdean/TrackMe',
+  demo: '',
+  featured: true
+},
 ];
 
 export default function Projects() {
@@ -65,7 +87,11 @@ export default function Projects() {
         <h2 className={styles.title}>Projects</h2>
         <div className={styles.grid}>
           {projects.map((project, index) => (
-            <div key={index} className={styles.project}>
+            <article
+              key={project.title}
+              className={`${styles.project} ${project.featured ? styles.featured : ''}`}
+              style={{ transitionDelay: `${index * 90}ms` }}
+            >
               <div className={styles.imageWrapper}>
                 <Image
                   src={project.image}
@@ -74,8 +100,10 @@ export default function Projects() {
                   className={styles.image}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
+                <span className={styles.status}>{project.status}</span>
               </div>
               <div className={styles.content}>
+                <p className={styles.outcome}>{project.outcome}</p>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.description}>{project.description}</p>
                 <div className={styles.technologies}>
@@ -85,18 +113,24 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className={styles.links}>
-                  <a href={project.link} className={styles.link} target="_blank" rel="noopener noreferrer">
-                    GitHub
-                  </a>
-                  {project.demo && (
-                    <a href={project.demo} className={`${styles.link} ${styles.demo}`} target="_blank" rel="noopener noreferrer">
-                      Live Demo
-                    </a>
-                  )}
-                </div>
+                {(project.link || project.demo) && (
+                  <div className={styles.links}>
+                    {project.link && (
+                      <a href={project.link} className={styles.link} target="_blank" rel="noopener noreferrer">
+                        <FaGithub aria-hidden="true" />
+                        GitHub
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a href={project.demo} className={`${styles.link} ${styles.demo}`} target="_blank" rel="noopener noreferrer">
+                        <FaExternalLinkAlt aria-hidden="true" />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

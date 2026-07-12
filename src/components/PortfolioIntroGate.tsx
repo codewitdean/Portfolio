@@ -30,8 +30,8 @@ export default function PortfolioIntroGate({ children }: PropsWithChildren) {
         initial={false}
         animate={
           introComplete
-            ? { opacity: 1, y: 0, filter: "blur(0px)" }
-            : { opacity: 0, y: shouldReduceMotion ? 0 : 28, filter: "blur(18px)" }
+            ? { opacity: 1 }
+            : { opacity: 0 }
         }
         transition={{
           duration: shouldReduceMotion ? 0.2 : 0.9,

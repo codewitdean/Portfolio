@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { FaGithub, FaPaperPlane } from 'react-icons/fa';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -62,12 +63,15 @@ export default function Contact() {
           <div className={styles.info}>
             <h3 className={styles.subtitle}>Let&apos;s Connect</h3>
             <p className={styles.description}>
-              I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              I&apos;m open to internships, project conversations, and opportunities where I can keep growing as a software engineer.
             </p>
-            <div className={styles.email}>
-              <span className={styles.label}>Email:</span>
+            <div className={styles.contactLinks}>
               <a href="mailto:deanasantee@gmail.com" className={styles.emailLink}>
-             deanasantee@gmail.com
+                deanasantee@gmail.com
+              </a>
+              <a href="https://github.com/codewitdean" className={styles.emailLink} target="_blank" rel="noopener noreferrer">
+                <FaGithub aria-hidden="true" />
+                GitHub
               </a>
             </div>
           </div>
@@ -113,6 +117,7 @@ export default function Contact() {
               className={styles.button}
               disabled={isSubmitting}
             >
+              <FaPaperPlane aria-hidden="true" />
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
             {submitStatus === 'success' && (

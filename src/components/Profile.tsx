@@ -2,8 +2,21 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { FaArrowRight, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 import styles from './Profile.module.css';
 import SocialLinks from './SocialLinks';
+
+const proofPoints = [
+  'Full-stack web apps',
+  // 'Android-focused problem solving',
+  'CS lab and peer support',
+];
+
+const heroStats = [
+  { value: 'CS', label: 'Kennesaw State University' },
+  { value: 'Full-stack', label: 'React, Node, ASP.NET' },
+  { value: 'Builder', label: 'Product-minded projects' },
+];
 
 export default function Profile() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -33,49 +46,68 @@ export default function Profile() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.profile}>
+    <section id="home" ref={sectionRef} className={styles.profile}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.imageWrapper}>
-            <div className={styles.imageContainer}>
+          <div className={styles.text}>
+            <p className={styles.eyebrow}>Computer Science Student / Aspiring Software Developer</p>
+            <h1 className={styles.title}>
+              Building practical software with clean systems and thoughtful interfaces.
+            </h1>
+            <p className={styles.subtitle}>
+              I&apos;m Dean, a CS student at Kennesaw State University focused on turning ideas into useful web, backend, and mobile experiences.
+            </p>
+
+            <div className={styles.education}>
+              <span className={styles.schoolName}>Kennesaw State University</span>
+              <span>Bachelor of Science in Computer Science</span>
+              <span>Minor in Software Engineering</span>
+            </div>
+
+            <div className={styles.proofList} aria-label="Focus areas">
+              {proofPoints.map((point) => (
+                <span key={point}>{point}</span>
+              ))}
+            </div>
+
+            <div className={styles.buttons}>
+              <a href="#projects" className={styles.button}>
+                <FaArrowRight aria-hidden="true" />
+                View Projects
+              </a>
+              <a href="/files/Dean'sResume.pdf" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
+                <FaFileAlt aria-hidden="true" />
+                Resume
+              </a>
+              <a href="#contact" className={`${styles.button} ${styles.ghost}`}>
+                <FaEnvelope aria-hidden="true" />
+                Contact
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.visual} aria-label="Dean profile summary">
+            <div className={styles.imageFrame}>
               <Image
-                src="/images/about-pic.jpg"
-                alt="Profile"
+                src="/images/profile/about-pic.jpg"
+                alt="Dean Obeng Asante"
                 className={styles.image}
                 fill
-                sizes="(max-width: 768px) 300px, 500px"
+                sizes="(max-width: 768px) 82vw, 430px"
                 priority
-                quality={90}
+                quality={92}
               />
               <div className={styles.imageOverlay} />
             </div>
+            <div className={styles.statGrid}>
+              {heroStats.map((stat) => (
+                <div key={stat.label} className={styles.stat}>
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
+            </div>
             <SocialLinks />
-          </div>
-          <div className={styles.text}>
-            <h1 className={styles.title}>
-              Hi, I&apos;m <span className={styles.highlight}>Dean ! </span>
-            </h1>
-            <div className={styles.education}>
-              <p className={styles.school}>
-                <span className={styles.schoolName}>Kennesaw State University</span>
-                <span className={styles.degree}>Bachelor of Science in Computer Science</span>
-                <span className={styles.minor}>Minor in Software Engineering</span>
-              </p>
-            </div>
-            <p className={styles.subtitle}>
-              Full-stack developer passionate about creating efficient and functional web applications and systems
-            </p>
-            <div className={styles.buttons}>
-              <a href="#projects" className={styles.button}>
-                View Projects
-              </a>
-              <a href="" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
-                View Resume
-              </a>
-              <a href="#contact" className={`${styles.button} ${styles.outline}`}>
-                Contact Me
-              </a>
-            </div>
           </div>
         </div>
       </div>

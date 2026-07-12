@@ -1,8 +1,8 @@
 .about {
-  padding: 6rem 0;
+  padding: 6.5rem 0;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .about.visible {
@@ -11,283 +11,145 @@
 }
 
 .container {
-  max-width: 1200px;
+  width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 0 2rem;
+}
+
+.heading {
+  display: grid;
+  max-width: 740px;
+  gap: 0.65rem;
+  margin-bottom: 2.2rem;
+}
+
+.kicker {
+  color: var(--secondary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  text-align: center;
   color: var(--text-primary);
+  font-size: clamp(2.1rem, 5vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+  gap: 1rem;
+  align-items: stretch;
 }
 
-.story {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.subtitle {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
-}
-
-.text {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.text:last-child {
-  margin-bottom: 0;
-}
-
-.interests,
-.values {
-  width: 100%;
-}
-
-/* Carousel Styles */
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 1rem;
+.story,
+.snapshot,
+.value {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.05);
 }
 
-.carouselContent {
-  position: relative;
-  width: 100%;
-  height: 500px;
+.story {
+  padding: clamp(1.35rem, 3vw, 2rem);
 }
 
-.carouselSlide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transform: scale(1.1);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  display: flex;
-  flex-direction: column;
-}
-
-.carouselSlide.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.carouselImage {
-  position: relative;
-  width: 100%;
-  height: 80%;
-  overflow: hidden;
-}
-
-.image {
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.imagePlaceholder {
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-    rgba(5, 11, 24, 0.65);
-  background-size: 32px 32px;
-  background-position: center;
-}
-
-.carouselSlide:hover .image {
-  transform: scale(1.05);
-}
-
-/* Add a fade overlay for smoother transitions */
-.carouselImage::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
-  pointer-events: none;
-}
-
-.carouselInfo {
-  padding: 1.5rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-  height: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.carouselInfo h4 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+.story h3 {
+  margin-bottom: 1rem;
   color: var(--text-primary);
+  font-size: 1.25rem;
 }
 
-.carouselInfo p {
-  font-size: 1rem;
+.story p {
+  max-width: 78ch;
   color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: 1.02rem;
+  line-height: 1.85;
 }
 
-.carouselButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  border-radius: 50%;
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.carouselButton:hover {
-  background: var(--secondary);
-}
-
-.carouselButton.prev {
-  left: 1rem;
-}
-
-.carouselButton.next {
-  right: 1rem;
-}
-
-.carouselDots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
+.story p + p {
   margin-top: 1rem;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.snapshot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: clamp(1.25rem, 2.4vw, 1.6rem);
+  border-color: rgba(var(--warm-rgb), 0.28);
+  background:
+    linear-gradient(135deg, rgba(var(--warm-rgb), 0.12), transparent 42%),
+    rgba(255, 255, 255, 0.045);
 }
 
-.dot.active {
-  background: var(--secondary);
-  transform: scale(1.2);
+.snapshot span {
+  color: var(--warm);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.snapshot strong {
+  color: var(--text-primary);
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  line-height: 1.22;
 }
 
 .valueGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .value {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 1rem;
-  transition: transform 0.3s ease;
+  padding: 1.3rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
 .value:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.07);
 }
 
-.value h4 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+.valueIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+}
+
+.value h3 {
+  margin-bottom: 0.55rem;
   color: var(--text-primary);
+  font-size: 1.05rem;
 }
 
 .value p {
-  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
-@media (max-width: 768px) {
-  .about {
-    padding: 4rem 0;
-  }
-
-  .title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .content {
-    gap: 3rem;
-  }
-
-  .subtitle {
-    font-size: 1.5rem;
-  }
-
-  .text {
-    font-size: 1rem;
-  }
-
-  .carouselContent {
-    height: 400px;
-  }
-
-  .carouselImage {
-    height: 75%;
-  }
-
-  .carouselButton {
-    width: 32px;
-    height: 32px;
-    font-size: 1.25rem;
-  }
-
-  .carouselInfo {
-    height: 25%;
-    padding: 1rem;
-  }
-
-  .carouselInfo h4 {
-    font-size: 1.25rem;
-  }
-
+@media (max-width: 860px) {
+  .content,
   .valueGrid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: 4.75rem 0;
   }
 
-  .value {
-    padding: 1.5rem;
+  .container {
+    width: min(100% - 24px, 1180px);
   }
 }
