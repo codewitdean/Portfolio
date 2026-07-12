@@ -75,7 +75,7 @@ export default function Profile() {
                 <FaArrowRight aria-hidden="true" />
                 View Projects
               </a>
-              <a href="/files/Dean'sResume.pdf" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
+              <a href="/files/Dean's Resume.pdf" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
                 <FaFileAlt aria-hidden="true" />
                 Resume
               </a>
