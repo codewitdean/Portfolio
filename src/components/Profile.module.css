@@ -33,7 +33,7 @@
 
 .content {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.82fr);
+  grid-template-columns: minmax(0, 1.12fr) minmax(260px, 0.58fr);
   align-items: center;
   gap: clamp(1.75rem, 4.8vw, 4.5rem);
 }
@@ -63,13 +63,14 @@
 }
 
 .title {
-  max-width: 760px;
+  max-width: 680px;
   margin-bottom: clamp(0.8rem, 1.6svh, 1.15rem);
   color: var(--text-primary);
-  font-size: clamp(3.35rem, 8.4svh, 5.85rem);
-  font-weight: 800;
+  font-family: var(--section-heading-family);
+  font-size: var(--section-heading-size);
+  font-weight: var(--section-heading-weight);
   letter-spacing: 0;
-  line-height: 0.96;
+  line-height: var(--section-heading-line-height);
 }
 
 .subtitle {
@@ -105,18 +106,30 @@
 }
 
 .proofList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
   gap: 0.65rem;
   margin-bottom: clamp(1.1rem, 2.5svh, 1.6rem);
 }
 
 .proofList span {
-  border-left: 2px solid var(--secondary);
-  padding: 0.25rem 0 0.25rem 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.4rem 0.72rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-secondary);
   font-size: 0.92rem;
   font-weight: 650;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+
+.proofList span:hover {
+  border-color: rgba(var(--accent-rgb), 0.45);
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--text-primary);
 }
 
 .buttons {
@@ -167,59 +180,34 @@
 .visual {
   position: relative;
   display: grid;
-  justify-items: center;
+  justify-items: stretch;
+  align-content: center;
   gap: clamp(0.7rem, 1.8svh, 1rem);
-}
-
-.imageFrame {
-  position: relative;
-  width: min(390px, 34vw, 46svh, 82vw);
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: var(--shadow);
-}
-
-.imageFrame::before {
-  content: '';
-  position: absolute;
-  inset: 14px;
-  z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: calc(var(--radius) - 2px);
-  pointer-events: none;
-}
-
-.image {
-  object-fit: cover;
-  object-position: center 18%;
-  filter: saturate(0.94) contrast(1.02);
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, transparent 0 42%, rgba(5, 6, 8, 0.72) 100%),
-    linear-gradient(90deg, rgba(103, 232, 217, 0.12), transparent 46%);
+  padding-left: clamp(1rem, 3vw, 2rem);
+  border-left: 1px solid rgba(var(--secondary-rgb), 0.18);
 }
 
 .statGrid {
   display: grid;
-  width: min(390px, 34vw, 46svh, 82vw);
-  grid-template-columns: repeat(3, 1fr);
+  width: min(100%, 360px);
+  grid-template-columns: 1fr;
   gap: 0.55rem;
 }
 
 .stat {
   min-height: clamp(72px, 10.5svh, 84px);
-  padding: 0.7rem;
+  padding: 0.82rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(14px);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .stat strong {
@@ -242,10 +230,6 @@
     padding: 5rem 0 2.25rem;
   }
 
-  .title {
-    font-size: clamp(3.05rem, 8svh, 4.5rem);
-  }
-
   .subtitle {
     line-height: 1.55;
   }
@@ -255,9 +239,8 @@
     padding: 0.34rem 0.62rem;
   }
 
-  .imageFrame,
   .statGrid {
-    width: min(340px, 32vw, 44svh);
+    width: min(320px, 30vw);
   }
 
   .stat {
@@ -283,9 +266,10 @@
 
   .visual {
     justify-items: start;
+    padding-left: 0;
+    border-left: 0;
   }
 
-  .imageFrame,
   .statGrid {
     width: min(100%, 380px);
   }
@@ -305,11 +289,6 @@
     letter-spacing: 0.1em;
   }
 
-  .title {
-    font-size: clamp(2.45rem, 6.2svh, 3.45rem);
-    line-height: 0.98;
-  }
-
   .subtitle {
     font-size: 1rem;
     line-height: 1.58;
@@ -320,17 +299,16 @@
     grid-template-columns: 1fr;
   }
 
+  .proofList {
+    grid-template-columns: 1fr;
+  }
+
   .button {
     width: 100%;
   }
 
   .visual {
     justify-items: stretch;
-  }
-
-  .imageFrame {
-    justify-self: center;
-    width: min(100%, 340px);
   }
 
   .statGrid {

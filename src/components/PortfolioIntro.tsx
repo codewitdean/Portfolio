@@ -27,7 +27,7 @@ export default function PortfolioIntro({
   return (
     <motion.section
       aria-label="Welcome intro"
-      className="fixed inset-0 z-[999] isolate flex min-h-screen items-center justify-center overflow-hidden bg-black px-6 text-white"
+      className="fixed inset-0 z-[999] isolate flex min-h-screen items-center justify-center overflow-hidden bg-[#02030a] px-6 text-white"
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{
@@ -38,14 +38,14 @@ export default function PortfolioIntro({
       transition={{ duration: reduceMotion ? 0.2 : 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.div
-        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px] opacity-40 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(255,255,255,0.8)_0_1px,transparent_1.7px),radial-gradient(circle_at_36%_72%,rgba(139,216,255,0.68)_0_1px,transparent_1.8px),radial-gradient(circle_at_72%_26%,rgba(255,255,255,0.74)_0_1px,transparent_1.7px),radial-gradient(circle_at_88%_64%,rgba(245,211,109,0.58)_0_1px,transparent_1.8px)] bg-[size:360px_360px] opacity-40 [mask-image:linear-gradient(to_bottom,transparent,black_14%,black_86%,transparent)]"
         initial={{ opacity: 0 }}
         animate={{ opacity: reduceMotion ? 0.24 : 0.4 }}
         transition={{ duration: 1 }}
       />
 
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(45,212,191,0.18),transparent_44%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_34%,rgba(59,130,246,0.12))]"
+        className="absolute inset-0 bg-[linear-gradient(118deg,transparent_0_24%,rgba(139,216,255,0.16)_42%,rgba(215,166,255,0.08)_54%,transparent_74%),linear-gradient(180deg,transparent_0%,rgba(2,3,10,0.88)_88%)]"
         initial={{ opacity: 0 }}
         animate={{ opacity: reduceMotion ? 0.5 : [0.4, 0.68, 0.5] }}
         transition={{ duration: 3.2, ease: "easeInOut" }}
@@ -70,7 +70,7 @@ export default function PortfolioIntro({
           {nameLetters.map((letter, index) => (
             <motion.span
               key={`${letter}-${index}`}
-              className="inline-block bg-gradient-to-b from-white via-slate-100 to-cyan-200 bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(45,212,191,0.24)]"
+              className="inline-block bg-gradient-to-b from-white via-slate-100 to-cyan-200 bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(139,216,255,0.26)]"
               initial={{ opacity: 0, y: reduceMotion ? 0 : 22, filter: "blur(12px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{

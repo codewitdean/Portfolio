@@ -12,9 +12,11 @@
   width: fit-content;
   margin: 0 auto 3rem;
   color: var(--text-primary);
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  font-weight: 800;
+  font-family: var(--section-heading-family);
+  font-size: var(--section-heading-size);
+  font-weight: var(--section-heading-weight);
   letter-spacing: 0;
+  line-height: var(--section-heading-line-height);
   text-align: center;
 }
 

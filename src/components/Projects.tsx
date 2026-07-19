@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
   title: 'TrackMe',
   description:
-    'An app that helps users track daily habits by typing natural language entries like The app automatically converts those entries into structured habit data, allowing users to manage habits, log progress',
+    'An in-progress habit tracker where users enter natural language habit logs that are converted into structured habit data for progress tracking and review.',
   image: '/images/projects/Project.png',
   technologies: [
     'Next.js',
@@ -89,7 +89,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <article
               key={project.title}
-              className={`${styles.project} ${project.featured ? styles.featured : ''}`}
+              className={styles.project}
               style={{ transitionDelay: `${index * 90}ms` }}
             >
               <div className={styles.imageWrapper}>

@@ -32,10 +32,11 @@
 
 .title {
   color: var(--text-primary);
-  font-size: clamp(2.1rem, 5vw, 4.4rem);
-  font-weight: 800;
+  font-family: var(--section-heading-family);
+  font-size: var(--section-heading-size);
+  font-weight: var(--section-heading-weight);
   letter-spacing: 0;
-  line-height: 1;
+  line-height: var(--section-heading-line-height);
 }
 
 .content {

@@ -5,7 +5,9 @@
   height: 100%;
   overflow: hidden;
   pointer-events: none;
-  background: #050608;
+  background:
+    radial-gradient(ellipse at 50% 115%, rgba(139, 216, 255, 0.12), transparent 58%),
+    linear-gradient(180deg, #01020a 0%, #050313 48%, #02030a 100%);
   z-index: 0;
 }
 
@@ -14,10 +16,19 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(120deg, rgba(103, 232, 217, 0.12), transparent 34%),
-    linear-gradient(245deg, rgba(139, 183, 255, 0.12), transparent 42%),
-    linear-gradient(180deg, transparent 0%, rgba(5, 6, 8, 0.88) 78%);
-  opacity: 0.95;
+    radial-gradient(circle at 8% 18%, rgba(255, 255, 255, 0.92) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 16% 72%, rgba(139, 216, 255, 0.78) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 24% 34%, rgba(255, 255, 255, 0.7) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 34% 82%, rgba(245, 211, 109, 0.72) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 44% 16%, rgba(255, 255, 255, 0.82) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 58% 66%, rgba(215, 166, 255, 0.68) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 68% 28%, rgba(255, 255, 255, 0.78) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 76% 78%, rgba(139, 216, 255, 0.76) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.74) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 94% 56%, rgba(245, 211, 109, 0.62) 0 1px, transparent 1.7px);
+  background-size: 520px 520px;
+  opacity: 0.82;
+  animation: starDrift 90s linear infinite;
 }
 
 .background::after {
@@ -25,27 +36,62 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, transparent 0 23%, rgba(255, 255, 255, 0.045) 23% 23.15%, transparent 23.15% 100%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 38%, rgba(103, 232, 217, 0.035) 100%);
-  opacity: 0.7;
+    radial-gradient(circle at 12% 48%, rgba(255, 255, 255, 0.52) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 30% 12%, rgba(139, 216, 255, 0.52) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 46% 58%, rgba(255, 255, 255, 0.55) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 62% 22%, rgba(215, 166, 255, 0.5) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 82% 44%, rgba(255, 255, 255, 0.48) 0 0.8px, transparent 1.5px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 44%, rgba(2, 3, 10, 0.72) 100%);
+  background-size: 340px 340px, 380px 380px, 430px 430px, 360px 360px, 460px 460px, auto;
+  opacity: 0.76;
+  animation: twinkle 8s ease-in-out infinite alternate;
 }
 
 .gradient {
   position: absolute;
   inset: 0;
   background:
-    repeating-linear-gradient(115deg, rgba(103, 232, 217, 0.055) 0 1px, transparent 1px 74px),
-    repeating-linear-gradient(0deg, rgba(139, 183, 255, 0.04) 0 1px, transparent 1px 58px);
-  mask-image: linear-gradient(to bottom, transparent, black 14%, black 88%, transparent);
+    linear-gradient(118deg, transparent 0 23%, rgba(139, 216, 255, 0.12) 38%, rgba(215, 166, 255, 0.08) 47%, rgba(245, 211, 109, 0.035) 54%, transparent 72%),
+    linear-gradient(245deg, transparent 0 42%, rgba(139, 216, 255, 0.07) 55%, transparent 74%);
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 86%, transparent);
+  opacity: 0.88;
 }
 
 .grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-  background-size: 56px 56px;
+    linear-gradient(110deg, transparent 0 47%, rgba(139, 216, 255, 0.08) 47% 47.2%, transparent 47.2% 100%),
+    linear-gradient(64deg, transparent 0 61%, rgba(245, 211, 109, 0.06) 61% 61.14%, transparent 61.14% 100%);
+  background-size: 220px 220px, 280px 280px;
   background-position: center;
-  opacity: 0.34;
+  opacity: 0.28;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 76%, transparent);
+}
+
+@keyframes starDrift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 520px 260px;
+  }
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.52;
+  }
+
+  to {
+    opacity: 0.84;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background::before,
+  .background::after {
+    animation: none;
+  }
 }

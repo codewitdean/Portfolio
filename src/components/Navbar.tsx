@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 
@@ -28,7 +29,16 @@ const Navbar = () => {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <a href="#home" className={styles.logo} onClick={closeMenu} aria-label="Dean Obeng Asante home">
-          <span className={styles.logoMark}>DO</span>
+          <span className={styles.logoMark}>
+            <Image
+              src="/images/profile/about-pic.jpg"
+              alt=""
+              fill
+              sizes="40px"
+              className={styles.logoImage}
+              priority
+            />
+          </span>
           <span className={styles.logoText}>Dean Obeng Asante</span>
         </a>
         

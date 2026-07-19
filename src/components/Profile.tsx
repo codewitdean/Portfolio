@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { FaArrowRight, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 import styles from './Profile.module.css';
 import SocialLinks from './SocialLinks';
@@ -87,18 +86,6 @@ export default function Profile() {
           </div>
 
           <div className={styles.visual} aria-label="Dean profile summary">
-            <div className={styles.imageFrame}>
-              <Image
-                src="/images/profile/about-pic.jpg"
-                alt="Dean Obeng Asante"
-                className={styles.image}
-                fill
-                sizes="(max-width: 768px) 82vw, 430px"
-                priority
-                quality={92}
-              />
-              <div className={styles.imageOverlay} />
-            </div>
             <div className={styles.statGrid}>
               {heroStats.map((stat) => (
                 <div key={stat.label} className={styles.stat}>
