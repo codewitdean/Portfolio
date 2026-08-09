@@ -13,7 +13,7 @@ const proofPoints = [
 
 const heroStats = [
   { value: 'CS', label: 'Kennesaw State University' },
-  { value: 'Full-stack', label: 'React, Node, ASP.NET' },
+  { value: 'Full-stack', label: 'React, Next.js, Node.js, Express.js, MongoDB,' },
   { value: 'Builder', label: 'Product-minded projects' },
 ];
 

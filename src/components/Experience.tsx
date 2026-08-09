@@ -19,7 +19,7 @@ const experiences: ExperienceItem[] = [
     period: 'Current',
     description: [
       'Building a strong foundation in programming, problem solving, software engineering, and application design.',
-      'Applying coursework through hands-on web, backend, and Android-focused projects.',
+      'Applying coursework through hands-on web, backend, and mobile development.',
     ],
     technologies: ['Java', 'Python', 'C#', 'Software Engineering'],
   },
@@ -31,7 +31,7 @@ const experiences: ExperienceItem[] = [
       'Helped students reason through programming fundamentals, debugging steps, and cleaner ways to explain code.',
       'Strengthened communication habits by breaking technical problems into understandable pieces.',
     ],
-    technologies: ['Debugging', 'Communication', 'Code Review'],
+    technologies: ['Tutoring','Debugging', 'Communication', 'Code Review','Grading and Feedback'],
   },
   {
     organization: 'Independent Projects',
@@ -41,7 +41,7 @@ const experiences: ExperienceItem[] = [
       'Designed and deployed ReadyUp, a student productivity app built with React, Node, and MongoDB.',
       'Focused on user flows, task organization, progress tracking, and practical deployment details.',
     ],
-    technologies: ['React.js', 'Node.js', 'MongoDB', 'Deployment'],
+    technologies: ['React.js', 'Node.js', 'Next.js','Express.js', 'MongoDB', 'Vercel', 'AWS'],
   },
 ];
 

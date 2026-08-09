@@ -12,27 +12,27 @@ const skills = [
   {
     category: 'Frameworks',
     summary: 'Frontend and backend application work',
-    items: ['React.js', 'Next.js', 'Node.js', 'ASP.NET Core'],
+    items: ['React.js', 'Next.js', 'Node.js', 'Express.js'],
   },
   {
     category: 'Data & Cloud',
     summary: 'Persistence, deployment, and service basics',
-    items: ['MongoDB', 'SQL', 'SQLite', 'AWS', 'Azure'],
+    items: ['MongoDB', 'SQL',  'AWS', 'Azure','Render', 'Vercel'],
   },
   {
     category: 'Tools',
     summary: 'Daily development and debugging workflow',
-    items: ['Git', 'VS Code', 'IntelliJ', 'Rider', 'PyCharm'],
+    items: ['Git', 'VS Code', 'IntelliJ','Cursor'],
   },
   {
     category: 'Testing & APIs',
     summary: 'API testing and application visibility',
-    items: ['Postman', 'Bruno', 'Datadog'],
+    items: ['Postman', ],
   },
   {
     category: 'Design & Collaboration',
     summary: 'Interface planning and communication',
-    items: ['Figma', 'Canva', 'Documentation'],
+    items: ['Figma', 'Canva', ],
   },
 ];
 
