@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import Background from "@/components/Background";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Portfolio | Dean Kwadwo Obeng Asante ",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <main className="relative min-h-screen">
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );

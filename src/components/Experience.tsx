@@ -34,14 +34,15 @@ const experiences: ExperienceItem[] = [
     technologies: ['Tutoring','Debugging', 'Communication', 'Code Review','Grading and Feedback'],
   },
   {
-    organization: 'Independent Projects',
-    role: 'Full-stack Developer',
+    organization: 'CodePath Classes',
+    role: 'Student',
     period: '2025 - Present',
     description: [
-      'Designed and deployed ReadyUp, a student productivity app built with React, Node, and MongoDB.',
-      'Focused on user flows, task organization, progress tracking, and practical deployment details.',
+      'Foundations of AI Engineering (AI110) | Spring 2026 — Earned Honors',
+     'Intermediate Cybersecurity (CYB102) | Summer 2026 — Completed',
+      'Technical Interview Prep Series (TIP101 – TIP103) | 2025 – Present',
     ],
-    technologies: ['React.js', 'Node.js', 'Next.js','Express.js', 'MongoDB', 'Vercel', 'AWS'],
+    technologies: ['Claude AI.', 'Microsoft Copilot', 'Python','Splunk', 'Wireshark', 'LeetCode', 'HackerRank'],
   },
 ];
 
